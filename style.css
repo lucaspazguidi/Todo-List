@@ -1,0 +1,300 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: rgb(126, 128, 128); /* Cor do fundo */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    height: 100vh;
+    margin: 0;
+    margin-top: 100px;
+    padding: 20px;
+    transition: background-color 0.5s ease;
+
+}
+
+header {
+    background-color: rgb(85, 72, 72); /* Cor de fundo do header */
+    color: white;
+    width: 400px;
+    text-align: center;
+    padding: 20px;
+    border-radius: 10px 10px 0 0;
+    margin: 0;
+}
+
+main {
+    width: 400px;
+    background-color: white;
+    padding: 20px;
+    border-radius: 0 0 10px 10px;
+    margin: 0;
+}
+
+h1 {
+    margin: 0;
+}
+
+
+/* Ajuste para centralizar o conteúdo de tarefas e o input */
+#quadrado {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centraliza os elementos dentro de #quadrado */
+    justify-content: center;
+    gap: 20px; /* Espaço entre o input e a lista de tarefas */
+}
+
+#adicionar-tarefa {
+    display: flex;
+    align-items: center; /* Alinha o input e o botão de adicionar lado a lado */
+    gap: 10px; /* Espaço entre o input e o botão */
+}
+
+#adicionar-tarefa input[type="text"] {
+    padding: 10px;
+    width: 70%; /* Ajusta o tamanho do input */
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+#adicionar-tarefa input[type="submit"] {
+    padding: 10px 20px;
+    border: none;
+    background-color: rgb(85, 72, 72); /* Cor de fundo do botão */
+    color: white;
+    cursor: pointer;
+    border-radius: 10px;
+}
+
+#adicionar-tarefa input[type="submit"]:hover {
+    background-color: #555;
+}
+
+/* Estilo para a lista de tarefas */
+#task-list {
+    border-radius: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch; /* As tarefas irão se esticar para ocupar toda a largura */
+    gap: 10px; /* Espaço entre as tarefas */
+    width: 100%;
+}
+
+.tarefa {
+    background-color: #645656;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between; /* Alinha os botões à direita */
+    align-items: center;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    box-sizing: border-box; /* Garante que o padding não afete a largura total */
+    position: relative;
+    word-wrap: break-word; /* Faz com que o texto quebre se for muito longo */
+}
+
+.tarefa span {
+    flex: 1; /* Faz com que o texto ocupe o máximo possível de espaço */
+    font-size: 16px;
+    padding-right: 10px; /* Espaço entre o texto e os botões */
+}
+
+/* Botões */
+button {
+    padding: 8px 12px;
+    font-size: 14px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-left: 8px; /* Espaço entre os botões */
+}
+
+/* Botão "Concluir" */
+#botao-concluir {
+    background-color: #4CAF50; /* Verde */
+    color: white;
+    border-radius: 50px;
+}
+
+#botao-concluir:hover {
+    background-color: #45a049; /* Tom de verde mais escuro */
+}
+
+#botao-concluir:disabled {
+    background-color: #cccccc;  /* Cor de fundo quando desabilitado */
+    cursor: not-allowed;  /* Muda o cursor para indicar que o botão não pode ser clicado */
+}
+
+/* Botão "Excluir" */
+#botao-excluir {
+    border-radius: 50px;
+    background-color: #f44336; /* Vermelho */
+    color: white;
+}
+
+#botao-excluir:hover {
+    background-color: #d32f2f; /* Tom de vermelho mais escuro */
+}
+
+/* Botão "Editar" */
+#botao-editar {
+    background-color: #ffa500; /* Laranja */
+    color: white;
+    border-radius: 50px;
+}
+
+#botao-editar:hover {
+    background-color: #ff8c00; /* Tom de laranja mais escuro */
+}
+#botao-editar:disabled{
+    background-color: #cccccc;  /* Cor de fundo quando desabilitado */
+    cursor: not-allowed;  /* Muda o cursor para indicar que o botão não pode ser clicado */
+}
+/* Estilos para o campo de input quando for editado */
+input[type="text"] {
+    padding: 8px;
+    font-size: 14px;
+    width: 100%;
+    margin-top: 5px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    box-sizing: border-box; /* Garante que o padding não afete o tamanho total do input */
+    background-color: #f9f9f9; /* Fundo claro */
+    color: #333; /* Cor do texto */
+}
+
+input[type="text"]:focus {
+    border-color: #ffa500; /* Destaca a borda quando o campo estiver em foco */
+    outline: none; /* Remove o contorno padrão ao clicar no input */
+}
+
+@media (max-width: 400px) {
+    body {
+        padding: 30px;
+        height: auto;
+    }
+
+    header, main {
+        width: 100%;
+        padding: 15px;
+        box-sizing: border-box;
+    }
+
+    #quadrado {
+        width: 100%;
+        align-items: center; /* Centraliza os elementos */
+        gap: 15px;
+    }
+
+    #adicionar-tarefa {
+        flex-direction: column; /* Empilha os elementos */
+        align-items: center;    /* Centraliza horizontalmente */
+        width: 100%;
+    }
+
+    #adicionar-tarefa input[type="text"],
+    #adicionar-tarefa input[type="submit"] {
+        width: 90%;         /* Ocupa 90% da largura */
+        max-width: 300px;   /* Limita em telas um pouco maiores */
+    }
+
+    #task-list {
+        align-items: center;
+        width: 100%;
+    }
+
+    .tarefa {
+        width: 100%;
+        padding: 12px;
+        flex-direction: column;
+        align-items: center;
+        gap: 8px;
+        text-align: center;
+    }
+
+    .tarefa button,
+    .tarefa span {
+        margin: 0;
+        width: 80%;
+        max-width: 250px;
+        padding: 8px 0;
+    }
+
+    .tarefa span {
+        display: inline-block;
+    }
+}
+/* 🌙 DARK MODE */
+body.dark-mode {
+    background-color: #121212;
+    color: #ffffff;
+}
+
+body.dark-mode header {
+    background-color: #1f1f1f;
+}
+
+body.dark-mode main {
+    background-color: #1e1e1e;
+}
+
+body.dark-mode .tarefa {
+    background-color: #2a2a2a;
+    border: 1px solid #444;
+    color: white;
+}
+
+body.dark-mode input[type="text"] {
+    background-color: #333;
+    color: #fff;
+    border: 1px solid #555;
+}
+
+body.dark-mode input[type="text"]:focus {
+    border-color: #ffa500;
+}
+
+body.dark-mode #input-tarefa {
+    background-color: #444;
+}
+
+body.dark-mode #botao-concluir {
+    background-color: #388e3c;
+}
+
+body.dark-mode #botao-concluir:hover {
+    background-color: #2e7d32;
+}
+
+body.dark-mode #botao-excluir {
+    background-color: #c62828;
+}
+
+body.dark-mode #botao-excluir:hover {
+    background-color: #b71c1c;
+}
+
+body.dark-mode #botao-editar {
+    background-color: #ff8c00;
+}
+
+body.dark-mode #botao-editar:hover {
+    background-color: #ff7f00;
+}
+#toggle-dark {
+    padding: 10px 20px;
+    margin-bottom: 40px; /* 👉 Espaço abaixo do botão */
+    border-radius: 8px;  /* 👉 Cantos arredondados */
+    border: none;
+    background-color: #444;
+    width: 200px;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#toggle-dark:hover {
+    background-color: #666;
+}
